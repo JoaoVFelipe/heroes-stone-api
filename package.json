@@ -1,0 +1,11 @@
+{
+  "name": "heroes_marvel-stone",
+  "version": "1.0.0",
+  "description": "Marvel Heroes - Characters and Comics: Project for admision at Stone Co.",
+  "main": "index.js",
+  "author": "João Vitor Felipe dos Santos",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
