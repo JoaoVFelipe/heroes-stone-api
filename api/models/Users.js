@@ -14,14 +14,15 @@ class Users extends Model {
             },
         },
         name: Sequelize.STRING,
+        bio: Sequelize.STRING,
         email: Sequelize.STRING,
-        password: Sequelize.VIRTUAL,
-        password_hash: Sequelize.STRING,
+        password: Sequelize.STRING,
+        password_raw: Sequelize.VIRTUAL,
      }, { sequelize });
 
     // Encrypts password before saving a new user
     this.addHook('beforeSave', async (user) => {
-      if (user.password) { user.password_hash = await bcrypt.hash(user.password, 8); }
+      if (user.password_raw) { user.password = await bcrypt.hash(user.password_raw, 8); }
     });
 
     return this;

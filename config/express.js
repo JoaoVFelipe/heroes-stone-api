@@ -21,9 +21,9 @@ module.exports = () => {
 
   consign({ cwd: 'api' })
     .then('models')
-    .then('services')
-    .then('validations')
     .then('controllers')
+    .then('validations')
+    .then('resources')
     .into(app);
 
   return app;

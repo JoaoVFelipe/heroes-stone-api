@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-expressions */
 import Sequelize from 'sequelize';
-
+import Users from '../api/models/Users';
 import configDatabase from '../config/database';
 
-const models = [];
+const models = [
+  Users
+];
 
-class DataBase {
+class Database {
   constructor() {
     this.init();
   }
@@ -16,11 +18,7 @@ class DataBase {
     models.forEach((model) => {
       model.init(this.connection);
     });
-
-    models.forEach((model) => {
-      model.associate && model.associate(this.connection.models);
-    });
   }
 }
 
-export default new DataBase();
+export default new Database();
