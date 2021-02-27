@@ -16,8 +16,8 @@ module.exports = () => {
     const { email, password } = req.body;
 
     const schema = Yup.object().shape({
-        email: Yup.string().required('Required field!').email('Invalid e-mail!'),
-        password: Yup.string().required('Required field!').min(6, 'Password has to be at least 6 characters long.'),
+        email: Yup.string().nullable().required('Email is required!').email('Invalid e-mail!'),
+        password: Yup.string().nullable().required('Password is required!').min(6, 'Password has to be at least 6 characters long.'),
     });
 
     try {

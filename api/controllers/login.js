@@ -8,6 +8,9 @@ module.exports = () => {
     const { email } = req.body;
 
     const existingUser = await Users.findOne({
+        attributes: {
+          exclude: ['password', 'createdAt', 'updatedAt']
+        },
         where: { email },
     });
 
@@ -18,8 +21,11 @@ module.exports = () => {
         { expiresIn: process.env.EXPIRES_IN}
     );
 
-    res.setHeader('X-Authorization', token);
-    return res.status(201).send();
+    res.setHeader('Authorization', token);
+    return res.status(201).send({
+      token: token,
+      userData: existingUser
+    });
   };
 
   return controllers;
