@@ -1,6 +1,7 @@
 import config from 'config';
 import ValidateExceptions from '../exceptions/validate';
 
+
 module.exports = (app) => {
   const controller = app.controllers.login;
   const validation = app.validations.login;
@@ -10,9 +11,9 @@ module.exports = (app) => {
   const baseValidateAndControllerCall = async (name, req, res) => {
     const errors = await validation[name](req, res);
     if (errors.length === 0) {
-        controller[name](req, res);
+      controller[name](req, res);
     } else {
-        res.status(400).send(new ValidateExceptions(400, 'Ocorreu um erro ao processar sua solicitação.', errors));
+      res.status(400).send(new ValidateExceptions(400, 'An error ocurred!', errors));
     }
   };
 

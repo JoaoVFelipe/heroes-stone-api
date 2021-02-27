@@ -16,8 +16,8 @@ module.exports = () => {
     const { email, password } = req.body;
 
     const schema = Yup.object().shape({
-        email: Yup.string().required('Campo Obrigatório').email('Formato de e-mail inválido'),
-        password: Yup.string().required('Campo Obrigatório').min(6, 'Senha deve ter no mínimo 6 caracteres'),
+        email: Yup.string().required('Required field!').email('Invalid e-mail!'),
+        password: Yup.string().required('Required field!').min(6, 'Password has to be at least 6 characters long.'),
     });
 
     try {
@@ -32,10 +32,10 @@ module.exports = () => {
     // Search for the email on database
     const existingUser = await Users.findOne({ where: { email } });
     if (!existingUser) {
-      errors.push(new FieldMessage('email', 'E-mail inválido/inexistente'));
+      errors.push(new FieldMessage('email', 'Invalid e-mail!'));
     } else if (!(await checkPassword(password, existingUser))) {
         //Check password match
-        errors.push(new FieldMessage('password', 'Senha inválida'));
+        errors.push(new FieldMessage('password', 'Invalid password'));
     }
     
     return errors;

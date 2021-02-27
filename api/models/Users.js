@@ -27,6 +27,13 @@ class Users extends Model {
 
     return this;
   }
+
+  static associate(models) {
+    this.hasMany(models.FavoriteChars, {
+      foreignKey: 'charId',
+      as: 'char',
+    });
+  }
 }
 
 export default Users;
