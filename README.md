@@ -4,7 +4,7 @@ This repository contains the backend of the application "My Marvel Universe", cr
 
 ### About - My Marvel Universe
   
-The objective of this application is basically to list all heroes and comics from the Marvel Universe, and allow the user to create an account, favorite any comic and hero and check the favorite items.
+The main objective of this application is to list all characters and comics from the Marvel Universe, and allow the user to create an account, favorite any comic or character, and check the favorite items.
 
 ### How to start
 
