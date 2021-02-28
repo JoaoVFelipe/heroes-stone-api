@@ -1,11 +1,9 @@
-import Sequelize, { Model } from 'sequelize';
-import bcrypt from 'bcryptjs';
-
+import Sequelize, { DataTypes, Model } from 'sequelize';
 class Users extends Model {
   static init(sequelize) {
     super.init({
         id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
 
@@ -13,17 +11,11 @@ class Users extends Model {
                 return String(this.getDataValue('id'));
             },
         },
-        name: Sequelize.STRING,
-        bio: Sequelize.STRING,
-        email: Sequelize.STRING,
-        password: Sequelize.STRING,
-        password_raw: Sequelize.VIRTUAL,
+        name: DataTypes.STRING,
+        bio: DataTypes.STRING,
+        email: DataTypes.STRING,
+        password: DataTypes.STRING,
      }, { sequelize });
-
-    // Encrypts password before saving a new user
-    this.addHook('beforeSave', async (user) => {
-      if (user.password_raw) { user.password = await bcrypt.hash(user.password_raw, 8); }
-    });
 
     return this;
   }
@@ -35,5 +27,6 @@ class Users extends Model {
     });
   }
 }
+
 
 export default Users;

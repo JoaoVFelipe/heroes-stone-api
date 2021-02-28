@@ -16,7 +16,7 @@ class Database {
     this.init();
   }
 
-  init() {
+  static init() {
     this.connection = new Sequelize(configDatabase);
 
     models.forEach((model) => {
@@ -29,4 +29,6 @@ class Database {
   }
 }
 
-export default new Database();
+Database.init();
+
+module.export = Database;

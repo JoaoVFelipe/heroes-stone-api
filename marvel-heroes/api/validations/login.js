@@ -8,6 +8,7 @@ module.exports = () => {
 
   // Function to check the password based on the saved hash
   const checkPassword = (password, user) => {
+    console.log("PASS", password, user.password, bcrypt.compare(password, user.password))
     return bcrypt.compare(password, user.password);
   }
 

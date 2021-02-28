@@ -6,8 +6,8 @@
   "author": "João Vitor Felipe dos Santos",
   "license": "ISC",
   "scripts": {
-    "start": "nodemon server",
-    "debug": "nodemon --inspect server",
+    "start": "nodemon -r esm server",
+    "debug": "nodemon --inspect -r esm server",
     "lint": "eslint ./api --fix-dry-run",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,11 +19,13 @@
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "pg": "^8.0.3",
+    "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.21.9",
+    "sequelize-cli": "^5.5.1",
     "yup": "^0.29.1"
   },
   "devDependencies": {
@@ -34,11 +36,10 @@
     "eslint-plugin-prettier": "^3.3.1",
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
-    "sequelize-cli": "^5.5.1",
     "sucrase": "^3.17.1"
   },
   "engines": {
-    "node": "12.16.1",
-    "npm": "6.13.4"
+    "node": "15.10.0",
+    "npm": "7.5.3"
   }
 }
