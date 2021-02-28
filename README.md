@@ -20,19 +20,19 @@ The objective of this application is basically to list all heroes and comics fro
 All the requisitions should be on the pattern: (address):(port)/api/marvel/(route)
 The available routes on this api are:
 
-*POST* - /login - Realizes login;
+- *POST* - **/login** - Realizes login;
 
-*GET* (Auth require) - /user - Get the data from a logged user;
-*POST* - /user - Creates a user profile;
-*PUT* (Auth require) - /user - Updates a user profile;
+- *GET* (Auth require) - **/user** - Get the data from a logged user;
+- *POST* - **/user** - Creates a user profile;
+- *PUT* (Auth require) - **/user** - Updates a user profile;
 
-*GET* (Auth require) - /chars - List all favorite chars from a logged user.
-*POST* (Auth require) - /chars/:id - Favorite one char by id.
-*DELETE* (Auth require) - /chars/:id - Unfavorite one char by id.
+- *GET* (Auth require) - **/chars** - List all favorite chars from a logged user.
+- *POST* (Auth require) - **/chars/:id** - Favorite one char by id.
+- *DELETE* (Auth require) - **/chars/:id** - Unfavorite one char by id.
 
-*GET* (Auth require) - /comics - List all favorite comics from a logged user.
-*POST* (Auth require) - /comics/:id - Favorite one comic by id.
-*DELETE* (Auth require) - /comics/:id - Unfavorite one comic by id.
+- *GET* (Auth require) - **/comics** - List all favorite comics from a logged user.
+- *POST* (Auth require) - **/comics/:id** - Favorite one comic by id.
+- *DELETE* (Auth require) - **/comics/:id** - Unfavorite one comic by id.
 
 ### Technologies and tools
 
