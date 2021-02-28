@@ -6,7 +6,7 @@ module.exports = () => {
 
   controller.getProfile = async (req, res) => {
     const { userId } = req;
-    const userData = Users.findByPk({id: userId});
+    const userData = await Users.findByPk({id: userId});
     return res.status(200).send(userData);
   };
 
@@ -27,8 +27,8 @@ module.exports = () => {
     }
 
     const user = await Users.findByPk(userId);
-    user.update(req.body);
-    return res.status(200).send();
+    const userData = await user.update(req.body);
+    return res.status(200).send(userData);
   };
 
 

@@ -78,7 +78,7 @@ module.exports = () => {
 
     if (email) {
       const existingUser = await Users.findOne({ where: { email } });
-      if (existingUser && Number(userId) !== existingUser.id) {
+      if (existingUser) {
         errors.push(new FieldMessage('email', 'E-mail already in use!'));
         return errors;
       }
