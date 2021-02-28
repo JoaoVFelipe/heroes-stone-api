@@ -21,4 +21,14 @@ module.exports = (app) => {
     app.get(baseURL, authMiddleware, (req, res) => {
         baseValidateAndControllerCall('getProfile', req, res);
     });
+
+    // Create user
+    app.post(baseURL, async (req, res) => {
+        baseValidateAndControllerCall('createProfile', req, res);
+    });
+
+    // Update user
+    app.put(baseURL, authMiddleware, async (req, res) => {
+        baseValidateAndControllerCall('updateProfile', req, res);
+    });
 };
